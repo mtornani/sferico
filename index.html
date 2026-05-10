@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sferico Asset Guard â€” Portfolio Intelligence</title>
+<title>Sferico Asset Guard — Portfolio Intelligence</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap');
@@ -25,7 +25,7 @@
   --gold: #ecc94b;
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
-  --font-mono: 'JetBrains Mono', 'DM Mono', monospace;
+  --font-mono: 'DM Mono', monospace;
 }
 
 html { scroll-behavior: smooth; }
@@ -39,6 +39,7 @@ body {
   overflow-x: hidden;
 }
 
+/* GRAIN */
 body::after {
   content:'';
   position:fixed;
@@ -50,6 +51,7 @@ body::after {
 
 .wrap { max-width:920px; margin:0 auto; padding:0 24px; }
 
+/* ── HERO ── */
 .hero {
   padding: 72px 0 56px;
   border-bottom: 1px solid var(--border);
@@ -99,6 +101,7 @@ body::after {
   text-transform: uppercase;
 }
 
+/* ── SECTIONS ── */
 .section {
   padding: 60px 0;
   border-bottom: 1px solid var(--border);
@@ -126,6 +129,7 @@ body::after {
   margin-bottom: 36px;
 }
 
+/* ── INSIGHT GRID ── */
 .insight-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -172,6 +176,7 @@ body::after {
 }
 .icard-stat b { color: var(--text); }
 
+/* ── HYPOTHESIS ── */
 .hypo {
   background: var(--bg-card);
   border: 1px solid var(--border-accent);
@@ -195,6 +200,7 @@ body::after {
 }
 .hypo p b { font-weight:500; color:var(--accent); }
 
+/* ── DASHBOARD ── */
 .dash-header {
   display:flex;
   justify-content:space-between;
@@ -224,6 +230,7 @@ body::after {
   animation: pulse 2s infinite;
 }
 
+/* ── KPI ── */
 .kpi-row {
   display:grid;
   grid-template-columns: repeat(5,1fr);
@@ -264,6 +271,7 @@ body::after {
   display:block;
 }
 
+/* ── CONTROLS ── */
 .controls {
   display:flex;
   gap:8px;
@@ -313,6 +321,7 @@ body::after {
 .pill:hover { border-color:var(--accent); color:var(--accent); }
 .pill.active { background:var(--accent); color:var(--bg); border-color:var(--accent); }
 
+/* ── TABLE ── */
 .tbl-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
 table { width:100%; border-collapse:collapse; font-size:13px; }
 thead th {
@@ -349,6 +358,7 @@ td { padding:11px 12px; vertical-align:middle; }
 .b1 { background:rgba(99,179,237,.12); color:var(--accent); }
 .b2 { background:rgba(255,255,255,.05); color:var(--text-secondary); }
 
+/* metric cells */
 .metric-cell { font-family:var(--font-mono); font-size:12px; }
 .val-pos { color:var(--success); }
 .val-neg { color:var(--danger); }
@@ -374,6 +384,7 @@ td { padding:11px 12px; vertical-align:middle; }
 .f-ok   { background:rgba(104,211,145,.1);  color:var(--success); }
 .f-oppy { background:rgba(236,201,75,.12);  color:var(--gold); }
 
+/* ── CASE STUDY ── */
 .case {
   background:var(--bg-card);
   border:1px solid var(--border);
@@ -408,6 +419,7 @@ td { padding:11px 12px; vertical-align:middle; }
   font-family:var(--font-mono);
 }
 
+/* ── METRICS LEGEND ── */
 .metrics-legend {
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -433,6 +445,7 @@ td { padding:11px 12px; vertical-align:middle; }
 .ml-body { font-size:12px; color:var(--text-secondary); line-height:1.6; }
 .ml-alert { font-size:11px; color:var(--danger); margin-top:6px; font-family:var(--font-mono); }
 
+/* ── QUESTION ── */
 .question {
   background:var(--bg-card);
   border:1px solid var(--border);
@@ -469,6 +482,7 @@ td { padding:11px 12px; vertical-align:middle; }
 .btn-g { background:transparent; color:var(--text-secondary); border:1px solid var(--border); }
 .btn-g:hover { border-color:var(--accent); color:var(--accent); }
 
+/* ── FOOTER ── */
 .footer {
   padding:36px 0;
   text-align:center;
@@ -494,43 +508,43 @@ td { padding:11px 12px; vertical-align:middle; }
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-tag">Analisi indipendente â€¢ Sferico Sports Management â€¢ <b id="current-date">Maggio 2026</b></p>
-  <h1>Il vostro portfolio<br>visto come un <em id="brand-name">fondo</em>.</h1>
+  <p class="hero-tag">Analisi indipendente • Sferico Sports Management • <b>Maggio 2026</b></p>
+  <h1>Il vostro portfolio<br>visto come un <em>fondo</em>.</h1>
   <p class="hero-lead">
     Ho analizzato i dati pubblici di Sferico e costruito questo monitor prima di contattarvi.
-    Non Ã¨ un pitch â€” Ã¨ una verifica. Voglio sapere se ho capito bene il vostro problema operativo.
+    Non è un pitch — è una verifica. Voglio sapere se ho capito bene il vostro problema operativo.
   </p>
   <div class="hero-nums">
-    <div class="hnum"><span class="hnum-v" id="h-total">--</span><span class="hnum-l">Asset monitorati</span></div>
-    <div class="hnum"><span class="hnum-v" id="h-nav">--</span><span class="hnum-l">NAV Portfolio</span></div>
-    <div class="hnum"><span class="hnum-v" id="h-t1">--</span><span class="hnum-l">Tier 1</span></div>
-    <div class="hnum"><span class="hnum-v" id="h-alerts">--</span><span class="hnum-l">Alert critici</span></div>
-  </div
+    <div class="hnum"><span class="hnum-v">€100M</span><span class="hnum-l">NAV Portfolio</span></div>
+    <div class="hnum"><span class="hnum-v">24</span><span class="hnum-l">Asset monitorati</span></div>
+    <div class="hnum"><span class="hnum-v">5</span><span class="hnum-l">Tier 1</span></div>
+    <div class="hnum"><span class="hnum-v">3</span><span class="hnum-l">Alert critici</span></div>
+  </div>
 </section>
 
 <!-- ANALISI -->
 <section class="section">
   <p class="sec-tag">L'analisi</p>
-  <h2 id="analysis-title">Cosa gestisce davvero un COO di un fondo calcistico</h2>
+  <h2>Cosa gestisce davvero un COO di un fondo calcistico</h2>
   <p class="section-lead">
-    Con 10 persone e â‚¬108M di capitale investito in asset umani, il problema non Ã¨ la qualitÃ  dello scouting.
-    Ãˆ la velocitÃ  con cui identificate i cambiamenti di stato â€” prima che il mercato si adegui.
+    Con 10 persone e €108M di capitale investito in asset umani, il problema non è la qualità dello scouting.
+    È la velocità con cui identificate i cambiamenti di stato — prima che il mercato si adegui.
   </p>
 
   <div class="insight-grid">
     <div class="icard c-red">
-      <div class="icard-icon">â±</div>
+      <div class="icard-icon">⏱</div>
       <div class="icard-title">Il rischio di timing</div>
       <div class="icard-body">
-        Un asset in calo di minutaggio oggi Ã¨ un'opportunitÃ  di acquisto a prezzo basso.
-        Tra 3â€“4 settimane l'informazione Ã¨ pubblica e il prezzo si Ã¨ adeguato.
+        Un asset in calo di minutaggio oggi è un'opportunità di acquisto a prezzo basso.
+        Tra 3–4 settimane l'informazione è pubblica e il prezzo si è adeguato.
         La finestra si chiude silenziosa.
       </div>
-      <div class="icard-stat">Holding period ottimale: <b>2â€“4 stagioni</b></div>
+      <div class="icard-stat">Holding period ottimale: <b>2–4 stagioni</b></div>
     </div>
 
     <div class="icard c-gold">
-      <div class="icard-icon">ðŸ“‹</div>
+      <div class="icard-icon">📋</div>
       <div class="icard-title">Contractual decay</div>
       <div class="icard-body">
         Il rischio massimo inizia a 18 mesi dalla scadenza. Se non vendi o rinnovi,
@@ -540,10 +554,10 @@ td { padding:11px 12px; vertical-align:middle; }
     </div>
 
     <div class="icard c-blue">
-      <div class="icard-icon">ðŸ’¶</div>
+      <div class="icard-icon">💶</div>
       <div class="icard-title">Plusvalenza latente non visibile</div>
       <div class="icard-body">
-        La differenza tra prezzo d'ingresso e valore attuale Ã¨ valore intrappolato.
+        La differenza tra prezzo d'ingresso e valore attuale è valore intrappolato.
         Senza un monitor centralizzato, questa cifra esiste solo nei fogli di calcolo
         di chi ha firmato l'operazione.
       </div>
@@ -551,35 +565,35 @@ td { padding:11px 12px; vertical-align:middle; }
     </div>
 
     <div class="icard c-green">
-      <div class="icard-icon">ðŸŒŠ</div>
-      <div class="icard-title">Il corridoio lusofonoâ†’Italia</div>
+      <div class="icard-icon">🌊</div>
+      <div class="icard-title">Il corridoio lusofono→Italia</div>
       <div class="icard-body">
-        Il mercato Serie B/C italiano Ã¨ sistematicamente in ritardo sulla valutazione
-        degli asset lusofoni. Questo gap temporale Ã¨ il vostro vantaggio â€”
+        Il mercato Serie B/C italiano è sistematicamente in ritardo sulla valutazione
+        degli asset lusofoni. Questo gap temporale è il vostro vantaggio —
         ma richiede di essere presidiato in tempo reale.
       </div>
-      <div class="icard-stat">Gap stimato: <b>3â€“6 mesi di ritardo valutativo</b></div>
+      <div class="icard-stat">Gap stimato: <b>3–6 mesi di ritardo valutativo</b></div>
     </div>
   </div>
 
   <div class="hypo">
     <div class="hypo-tag">La mia ipotesi</div>
     <p>
-      Il vostro problema non Ã¨ trovare giocatori. Ãˆ avere una <b>visione finanziaria in tempo reale</b>
-      su 98 asset â€” sapere esattamente quali stanno apprezzando, quali sono a rischio contrattuale,
+      Il vostro problema non è trovare giocatori. È avere una <b>visione finanziaria in tempo reale</b>
+      su 98 asset — sapere esattamente quali stanno apprezzando, quali sono a rischio contrattuale,
       e quali hanno una finestra di exit ottimale che si sta per chiudere.
       <b>Prima che quell'informazione diventi pubblica.</b>
     </p>
-  </div
+  </div>
 </section>
 
 <!-- DASHBOARD -->
 <section class="section">
   <p class="sec-tag">Il prototipo</p>
-  <h2 id="dash-name">Sferico Asset Guard</h2>
+  <h2>Sferico Asset Guard</h2>
   <p class="section-lead">
     Portfolio simulato su profilo Sferico. Le metriche sono quelle di un fondo, non di un'agenzia scout.
-    Dati dimostrativi â€” il meccanismo Ã¨ reale e giÃ  validato su mercati terzi.
+    Dati dimostrativi — il meccanismo è reale e già validato su mercati terzi.
   </p>
 
   <div class="dash-header">
@@ -590,42 +604,42 @@ td { padding:11px 12px; vertical-align:middle; }
   <!-- KPI -->
   <div class="kpi-row">
     <div class="kpi" onclick="setFilter('all')" id="kpi-all">
-      <span class="kpi-v blue" id="kv-total">--</span>
+      <span class="kpi-v blue" id="kv-total">98</span>
       <span class="kpi-l">Asset totali</span>
-    </div
+    </div>
     <div class="kpi" onclick="setFilter('unrealized')" id="kpi-unrealized">
-      <span class="kpi-v grn" id="kv-unr">â€”</span>
+      <span class="kpi-v grn" id="kv-unr">—</span>
       <span class="kpi-l">Unrealized Gain</span>
-    </div
+    </div>
     <div class="kpi" onclick="setFilter('critical')" id="kpi-critical">
-      <span class="kpi-v red" id="kv-crit">â€”</span>
+      <span class="kpi-v red" id="kv-crit">—</span>
       <span class="kpi-l">Rischio contratto</span>
-    </div
+    </div>
     <div class="kpi" onclick="setFilter('exit')" id="kpi-exit">
-      <span class="kpi-v gold" id="kv-exit">â€”</span>
+      <span class="kpi-v gold" id="kv-exit">—</span>
       <span class="kpi-l">Exit window aperta</span>
-    </div
+    </div>
     <div class="kpi" onclick="setFilter('anomaly')" id="kpi-anomaly">
-      <span class="kpi-v warm" id="kv-anom">â€”</span>
-      <span class="kpi-l">Anomaly Gap &gt;8Ã—</span
-    </div
-  </div]
+      <span class="kpi-v warm" id="kv-anom">—</span>
+      <span class="kpi-l">Anomaly Gap &gt;8×</span>
+    </div>
+  </div>
 
   <!-- CONTROLS -->
   <div class="controls">
     <div class="search-wrap">
-      <span class="search-ico">ðŸ”</span>
+      <span class="search-ico">🔍</span>
       <input class="search" id="search" type="text" placeholder="Cerca asset, club, ruolo...">
-    </div
+    </div>
     <div class="pills" id="pills">
-      <div class="pill active" data-f="all">Tutti</div
-      <div class="pill" data-f="tier1">Tier 1</div
-      <div class="pill" data-f="critical">âš  Contratto</div
-      <div class="pill" data-f="exit">Exit window</div
-      <div class="pill" data-f="anomaly">Gap anomalo</div
-      <div class="pill" data-f="lusofono">Lusofoni</div
-    </div
-  </div]
+      <div class="pill active" data-f="all">Tutti</div>
+      <div class="pill" data-f="tier1">Tier 1</div>
+      <div class="pill" data-f="critical">⚠ Contratto</div>
+      <div class="pill" data-f="exit">Exit window</div>
+      <div class="pill" data-f="anomaly">Gap anomalo</div>
+      <div class="pill" data-f="lusofono">Lusofoni</div>
+    </div>
+  </div>
 
   <!-- TABLE -->
   <div class="tbl-wrap">
@@ -635,7 +649,7 @@ td { padding:11px 12px; vertical-align:middle; }
           <th onclick="sort('name')">Asset</th>
           <th onclick="sort('tier')">Tier</th>
           <th onclick="sort('role')">Ruolo</th>
-          <th onclick="sort('unrealized')">Unrealized Gain â†•</th>
+          <th onclick="sort('unrealized')">Unrealized Gain ↕</th>
           <th onclick="sort('crs')">Rischio Contratto</th>
           <th onclick="sort('lw')">Liquidity Window</th>
           <th onclick="sort('anomaly')">Anomaly Gap</th>
@@ -644,130 +658,146 @@ td { padding:11px 12px; vertical-align:middle; }
       </thead>
       <tbody id="tbody"></tbody>
     </table>
-  </div]
+  </div>
 
   <!-- CASE STUDY -->
   <div class="case">
-    <div class="case-tag">Caso reale validato â€” Mercato Serie C Italiano</div>
+    <div class="case-tag">Caso reale validato — Mercato Serie C Italiano</div>
     <p style="color:var(--text-secondary);font-size:13px;line-height:1.7">
       Il sistema ha flaggato un asset con valore percepito molto basso.
       La clausola rescissoria reale era <strong style="color:var(--text)">28 volte superiore</strong> al valore di mercato.
-      L'informazione era pubblica ma non aggregata â€” la finestra Ã¨ rimasta aperta per settimane
+      L'informazione era pubblica ma non aggregata — la finestra è rimasta aperta per settimane
       prima che altri operatori la identificassero.
     </p>
     <div class="case-nums">
-      <div class="cn"><span class="cn-v" style="color:var(--danger)">â‚¬1.8M</span><span class="cn-l">Valore percepito</span></div
-      <div class="cn"><span class="cn-v" style="color:var(--success)">â‚¬51M</span><span class="cn-l">Clausola reale</span></div
-      <div class="cn"><span class="cn-v" style="color:var(--gold)">28Ã—</span><span class="cn-l">Anomaly Gap Score</span></div
-      <div class="cn"><span class="cn-v" style="color:var(--accent)">$0â€“5</span><span class="cn-l">Costo/mese sistema</span></div
-    </div
-  </div]
+      <div class="cn"><span class="cn-v" style="color:var(--danger)">€1.8M</span><span class="cn-l">Valore percepito</span></div>
+      <div class="cn"><span class="cn-v" style="color:var(--success)">€51M</span><span class="cn-l">Clausola reale</span></div>
+      <div class="cn"><span class="cn-v" style="color:var(--gold)">28×</span><span class="cn-l">Anomaly Gap Score</span></div>
+      <div class="cn"><span class="cn-v" style="color:var(--accent)">$0–5</span><span class="cn-l">Costo/mese sistema</span></div>
+    </div>
+  </div>
 
   <!-- METRICS LEGEND -->
   <div class="metrics-legend">
     <div class="ml-card">
       <div class="ml-name">Unrealized Gain</div>
-      <div class="ml-body">(Valore attuale âˆ’ Prezzo ingresso) Ã— % quota detenuta. Il valore intrappolato in attesa di exit.</div>
-      <div class="ml-alert">âš  Alert: in calo per 2 finestre consecutive</div>
-    </div
+      <div class="ml-body">(Valore attuale − Prezzo ingresso) × % quota detenuta. Il valore intrappolato in attesa di exit.</div>
+      <div class="ml-alert">⚠ Alert: in calo per 2 finestre consecutive</div>
+    </div>
     <div class="ml-card">
       <div class="ml-name">Contractual Risk Score</div>
       <div class="ml-body">Peso inverso dei mesi residui di contratto, pesato per valore asset. Identifica gli asset Tier 1 a rischio zero.</div>
-      <div class="ml-alert">âš  Alert: Tier 1 con &lt;24 mesi residui</div>
-    </div
+      <div class="ml-alert">⚠ Alert: Tier 1 con &lt;24 mesi residui</div>
+    </div>
     <div class="ml-card">
       <div class="ml-name">Liquidity Window</div>
       <div class="ml-body">Data picco valore stimata vs data odierna. Indica quando arriveranno flussi di cassa per nuovi investimenti.</div>
-      <div class="ml-alert">âš  Alert: finestra chiusa, nessuna trattativa attiva</div>
-    </div
+      <div class="ml-alert">⚠ Alert: finestra chiusa, nessuna trattativa attiva</div>
+    </div>
     <div class="ml-card">
       <div class="ml-name">Anomaly Gap Score</div>
       <div class="ml-body">Clausola contrattuale / Valore di mercato. Identifica asset protetti o vulnerabili rispetto al mercato.</div>
-      <div class="ml-alert">âš  Alert: ratio &lt;1.5Ã— su asset in forte crescita</div>
-    </div
-  </div]
+      <div class="ml-alert">⚠ Alert: ratio &lt;1.5× su asset in forte crescita</div>
+    </div>
+  </div>
 </section>
 
 <!-- DOMANDA -->
 <section class="section" style="border-bottom:none">
   <p class="sec-tag">La domanda</p>
-  <h2 id="question-title">Ho capito bene il vostro problema?</h2>
+  <h2>Ho capito bene il vostro problema?</h2>
   <p class="section-lead">
     Questa analisi l'ho costruita guardando dati pubblici, prima di scrivervi.
-    Potrei aver sbagliato le prioritÃ  â€” voi avete il quadro completo, io no.
+    Potrei aver sbagliato le priorità — voi avete il quadro completo, io no.
     Con luglio alle porte, vale verificarlo insieme.
   </p>
 
   <div class="question">
-    <h3 id="question-main">Gestire â‚¬108M di asset umani<br>richiede visibilitÃ  finanziaria, non solo scouting.</h3>
+    <h3>Gestire €108M di asset umani<br>richiede visibilità finanziaria, non solo scouting.</h3>
     <p>
       Se l'analisi coglie il punto, 20 minuti bastano per capire
-      se questo strumento ha senso nell'operativitÃ  di Sferico.
+      se questo strumento ha senso nell'operatività di Sferico.
     </p>
     <div class="ctas">
-      <a href="mailto:mirkotornani@gmail.com?subject=Sferico Asset Guard â€” call&body=Ciao Mirko, ho visto l'analisi. Sono disponibile per una call di 20 minuti." class="btn btn-p">
+      <a href="mailto:mirkotornani@gmail.com?subject=Sferico Asset Guard — call&body=Ciao Mirko, ho visto l'analisi. Sono disponibile per una call di 20 minuti." class="btn btn-p">
         Prenota 20 minuti
-      </a
+      </a>
       <button class="btn btn-g" onclick="document.getElementById('search').focus()">
         Esplora il prototipo
       </button>
-    </div
-  </div]
+    </div>
+  </div>
 </section>
 
 <footer class="footer">
-  <p>ANALISI INDIPENDENTE â€¢ DATI PUBBLICI â€¢ PROTOTIPO DIMOSTRATIVO â€¢ MAGGIO 2026</p>
+  <p>ANALISI INDIPENDENTE • DATI PUBBLICI • PROTOTIPO DIMOSTRATIVO • MAGGIO 2026</p>
   <p style="margin-top:10px;font-size:11px;color:var(--text-secondary)">
-    Mirko Tornani &nbsp;Â·&nbsp;
-    <a href="mailto:mirkotornani@gmail.com" style="color:var(--accent);text-decoration:none">mirkotornani@gmail.com</a>
-    &nbsp;Â·&nbsp;
+    Mirko Tornani &nbsp;·&nbsp; 
+    <a href="mailto:mirkotornani@gmail.com" style="color:var(--accent);text-decoration:none">mirkotornani@gmail.com</a> 
+    &nbsp;·&nbsp; 
     <a href="tel:+393398978738" style="color:var(--accent);text-decoration:none">+39 339 897 8738</a>
   </p>
-</footer
-</div
+</footer>
+</div>
 
 <script>
-let DATA = [];
+// ══════════════════════════════
+// DATI REALI — fonte: Transfermarkt
+// Sferico Sports Management, maggio 2026
+// ══════════════════════════════
+const DATA = [
+  {name:"Geovany Quenda",club:"Sporting CP",nationality:"🇵🇹",role:"WG",age:19,mv:42,months:13,tier:1,unrealized:16.73,anomaly:7.0,lwMonths:30,crs_flag:"CRITICO",lw_flag:"APERTA",overall:"URGENT"},
+  {name:"Jota Silva",club:"Beşiktaş JK",nationality:"🇵🇹",role:"WG",age:26,mv:12,months:1,tier:1,unrealized:2.53,anomaly:6.1,lwMonths:12,crs_flag:"CRITICO",lw_flag:"EXIT SOON",overall:"URGENT"},
+  {name:"Félix Correia",club:"LOSC Lille",nationality:"🇵🇹",role:"WG",age:25,mv:10,months:37,tier:1,unrealized:3.77,anomaly:5.7,lwMonths:12,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"URGENT"},
+  {name:"Leonardo Lelo",club:"SC Braga",nationality:"🇵🇹",role:"FB",age:26,mv:7,months:37,tier:1,unrealized:1.34,anomaly:7.1,lwMonths:12,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"URGENT"},
+  {name:"Willyan Rocha",club:"Al-Jazira Club",nationality:"🇧🇷",role:"CB",age:31,mv:5.5,months:13,tier:1,unrealized:1.05,anomaly:6.6,lwMonths:6,crs_flag:"CRITICO",lw_flag:"EXIT SOON",overall:"URGENT"},
+  {name:"Dani Silva",club:"Pafos FC",nationality:"🇵🇹",role:"MF",age:26,mv:2.5,months:1,tier:2,unrealized:0.81,anomaly:3.6,lwMonths:12,crs_flag:"ATTENZIONE",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Aziz Ganiev",club:"Al-Bataeh CSC",nationality:"🇺🇿",role:"MF",age:28,mv:2.2,months:13,tier:2,unrealized:0.36,anomaly:2.3,lwMonths:6,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Bruno Varela",club:"Al-Hazem SC",nationality:"🇨🇻",role:"GK",age:31,mv:2.0,months:13,tier:2,unrealized:0.27,anomaly:4.2,lwMonths:6,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Zé Carlos",club:"Gil Vicente FC",nationality:"🇵🇹",role:"FB",age:27,mv:2.0,months:1,tier:2,unrealized:0.41,anomaly:3.4,lwMonths:12,crs_flag:"ATTENZIONE",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Otabek Shukurov",club:"FC Baniyas",nationality:"🇺🇿",role:"MF",age:29,mv:1.6,months:1,tier:2,unrealized:0.37,anomaly:4.6,lwMonths:6,crs_flag:"ATTENZIONE",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Tamble",club:"Rio Ave FC",nationality:"🇬🇼",role:"WG",age:25,mv:1.5,months:18,tier:2,unrealized:0.24,anomaly:3.9,lwMonths:12,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"João Marques",club:"Casa Pia AC",nationality:"🇵🇹",role:"WG",age:24,mv:1.5,months:1,tier:2,unrealized:0.38,anomaly:2.5,lwMonths:18,crs_flag:"ATTENZIONE",lw_flag:"APERTA",overall:"WATCH"},
+  {name:"Matteo Francesconi",club:"Cesena FC",nationality:"🇮🇹",role:"MF",age:22,mv:1.5,months:25,tier:2,unrealized:0.19,anomaly:4.7,lwMonths:18,crs_flag:"OK",lw_flag:"APERTA",overall:"HOLD"},
+  {name:"Falaye Sacko",club:"Neftchi PFK",nationality:"🇲🇱",role:"FB",age:31,mv:1.2,months:13,tier:2,unrealized:0.17,anomaly:4.3,lwMonths:6,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"João Correia",club:"Pafos FC",nationality:"🇨🇻",role:"WG",age:29,mv:1.2,months:25,tier:2,unrealized:0.23,anomaly:3.9,lwMonths:6,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Alfa Semedo",club:"Al-Fayha FC",nationality:"🇬🇼",role:"MF",age:28,mv:1.0,months:25,tier:2,unrealized:0.32,anomaly:4.1,lwMonths:6,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Diney Borges",club:"Al-Bataeh CSC",nationality:"🇨🇻",role:"CB",age:31,mv:1.0,months:18,tier:2,unrealized:0.29,anomaly:4.1,lwMonths:6,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Vasco Moreira",club:"FC Alverca",nationality:"🇵🇹",role:"MF",age:25,mv:1.0,months:25,tier:2,unrealized:0.08,anomaly:2.3,lwMonths:12,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Abdu Conté",club:"Casa Pia AC",nationality:"🇵🇹",role:"FB",age:28,mv:0.7,months:25,tier:3,unrealized:0.31,anomaly:2.6,lwMonths:6,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Zidane Banjaqui",club:"FC Ararat-Armenia",nationality:"🇬🇼",role:"MF",age:27,mv:0.6,months:18,tier:3,unrealized:0.30,anomaly:2.4,lwMonths:12,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"João Gonçalves",club:"CS Universitatea Craiova",nationality:"🇵🇹",role:"GK",age:25,mv:0.6,months:1,tier:3,unrealized:0.12,anomaly:2.4,lwMonths:12,crs_flag:"ATTENZIONE",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Mouhamed Belkheir",club:"RAAL La Louvière",nationality:"🇩🇿",role:"MF",age:27,mv:0.6,months:25,tier:3,unrealized:0.18,anomaly:1.5,lwMonths:12,crs_flag:"OK",lw_flag:"EXIT SOON",overall:"WATCH"},
+  {name:"Antonio Espigares",club:"Gil Vicente FC",nationality:"🇪🇸",role:"CB",age:21,mv:0.5,months:37,tier:3,unrealized:0.07,anomaly:2.9,lwMonths:18,crs_flag:"OK",lw_flag:"APERTA",overall:"HOLD"},
+  {name:"Gonçalo Tabuaço",club:"Leixões SC",nationality:"🇵🇹",role:"GK",age:25,mv:0.5,months:1,tier:3,unrealized:0.15,anomaly:1.7,lwMonths:12,crs_flag:"ATTENZIONE",lw_flag:"EXIT SOON",overall:"WATCH"}
+];
 
-async function loadData() {
-  try {
-    const response = await fetch('sferico_players_analyzed.json');
-    DATA = await response.json();
-    updateKPIs();
-    render();
-  } catch (e) {
-    console.error("Errore caricamento dati:", e);
-    DATA = [
-      {name:"Geovany Quenda",club:"Sporting CP",nationality:"ðŸ‡µðŸ‡¹",role:"WG",age:19,mv:42,months:13,tier:1,unrealized:16.73,anomaly:7.0,lwMonths:30,crs_flag:"CRITICO",lw_flag:"APERTA",overall:"URGENT"},
-      {name:"Jota Silva",club:"BeÅŸiktaÅŸ JK",nationality:"ðŸ‡µðŸ‡¹",role:"WG",age:26,mv:12,months:1,tier:1,unrealized:2.53,anomaly:6.1,lwMonths:12,crs_flag:"CRITICO",lw_flag:"EXIT SOON",overall:"URGENT"}
-    ];
-    updateKPIs();
-    render();
-  }
-}
-
+// ══════════════════════════════
+// STATO
+// ══════════════════════════════
 let activeFilter = 'all';
 let activeSearch = '';
 let sortKey = 'unrealized';
 let sortAsc = false;
 
+// ══════════════════════════════
+// KPI
+// ══════════════════════════════
 function updateKPIs(){
-  const totalUnr = DATA.reduce((s,p)=>s+Math.max(0,p.unrealized || 0),0);
+  const totalUnr = DATA.reduce((s,p)=>s+Math.max(0,p.unrealized),0);
   const crit     = DATA.filter(p=>p.crs_flag==='CRITICO').length;
   const exitOpen = DATA.filter(p=>p.lw_flag==='EXIT SOON' && p.unrealized>0).length;
   const anomHigh = DATA.filter(p=>p.anomaly>=5).length;
   document.getElementById('kv-total').textContent = DATA.length;
-  document.getElementById('kv-unr').textContent   = 'â‚¬'+totalUnr.toFixed(1)+'M';
+  document.getElementById('kv-unr').textContent   = '€'+totalUnr.toFixed(1)+'M';
   document.getElementById('kv-crit').textContent  = crit;
   document.getElementById('kv-exit').textContent  = exitOpen;
   document.getElementById('kv-anom').textContent  = anomHigh;
-
-  document.getElementById('h-total').textContent = DATA.length;
-  document.getElementById('h-nav').textContent = 'â‚¬'+(totalUnr * 5).toFixed(0)+'M';
-  document.getElementById('h-t1').textContent = DATA.filter(p=>p.tier===1).length;
-  document.getElementById('h-alerts').textContent = crit;
 }
 
+// ══════════════════════════════
+// FILTER + SORT
+// ══════════════════════════════
 function filtered(){
   const q = activeSearch.toLowerCase();
   return DATA.filter(p=>{
@@ -779,7 +809,7 @@ function filtered(){
     if(activeFilter==='critical')   mf = p.crs_flag==='CRITICO';
     if(activeFilter==='exit')       mf = p.lw_flag==='EXIT SOON';
     if(activeFilter==='anomaly')    mf = p.anomaly>=5;
-    if(activeFilter==='lusofono')   mf = ['ðŸ‡µðŸ‡¹','ðŸ‡§ðŸ‡·','ðŸ‡¨ðŸ‡»','ðŸ‡¬ðŸ‡¼'].includes(p.nationality);
+    if(activeFilter==='lusofono')   mf = ['🇵🇹','🇧🇷','🇨🇻','🇬🇼'].includes(p.nationality);
     if(activeFilter==='unrealized') mf = p.unrealized>0;
     return ms && mf;
   }).sort((a,b)=>{
@@ -789,15 +819,14 @@ function filtered(){
   });
 }
 
+// ══════════════════════════════
+// RENDER
+// ══════════════════════════════
 function fmtM(n){
-  if(!n) return 'â€”';
   if(Math.abs(n)<0.1) return (n*1000).toFixed(0)+'K';
   return (n>=0?'+':'')+n.toFixed(2)+'M';
 }
-function fmtMV(n){
-  if(!n) return 'â€”';
-  return n>=1?n.toFixed(1)+'M':(n*1000).toFixed(0)+'K';
-}
+function fmtMV(n){ return n>=1?n.toFixed(1)+'M':(n*1000).toFixed(0)+'K'; }
 
 function crsClass(p){
   if(p.crs_flag==='CRITICO')    return 'val-neg';
@@ -805,18 +834,18 @@ function crsClass(p){
   return 'val-muted';
 }
 function crsLabel(p){
-  if(p.crs_flag==='CRITICO')    return 'âš  CRITICO';
-  if(p.crs_flag==='ATTENZIONE') return 'â— ATTENZIONE';
-  return 'âœ“ STABILE';
+  if(p.crs_flag==='CRITICO')    return '⚠ CRITICO';
+  if(p.crs_flag==='ATTENZIONE') return '● ATTENZIONE';
+  return '✓ STABILE';
 }
 function lwClass(m){ return m<=6?'val-neg':m<=12?'val-warn':'val-muted'; }
 function lwLabel(p){ return p.lw_flag==='EXIT SOON'?'Exit imminente':'Aperta'; }
 function anomClass(a){ return a>=7?'val-neg':a>=4?'val-warn':'val-muted'; }
 
 function stateFlag(p){
-  if(p.overall==='URGENT') return '<span class="flag f-crit">âš  URGENT</span>';
-  if(p.overall==='WATCH')  return '<span class="flag f-warn">â— WATCH</span>';
-  return '<span class="flag f-ok">âœ“ HOLD</span>';
+  if(p.overall==='URGENT') return '<span class="flag f-crit">⚠ URGENT</span>';
+  if(p.overall==='WATCH')  return '<span class="flag f-warn">● WATCH</span>';
+  return '<span class="flag f-ok">✓ HOLD</span>';
 }
 
 function render(){
@@ -843,14 +872,14 @@ function render(){
         <div class="bar-wrap" style="margin-top:4px">
           <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
           <span style="font-size:10px;color:var(--text-muted)">${p.months}m</span>
-        </div
+        </div>
       </td>
       <td class="metric-cell ${lwClass(p.lwMonths)}">
         ${lwLabel(p)}
         <div style="font-size:10px;color:var(--text-muted)">${p.lwMonths}m stimati</div>
       </td>
       <td class="metric-cell ${anomClass(p.anomaly)}">
-        ${p.anomaly}Ã—
+        ${p.anomaly}×
         <div style="font-size:10px;color:var(--text-muted)">${fmtMV(p.mv)} MV</div>
       </td>
       <td>${stateFlag(p)}</td>
@@ -858,6 +887,9 @@ function render(){
   }).join('');
 }
 
+// ══════════════════════════════
+// EVENTS
+// ══════════════════════════════
 function setFilter(f){
   activeFilter = f;
   document.querySelectorAll('.pill').forEach(p=>{
@@ -884,8 +916,9 @@ document.getElementById('search').addEventListener('input',e=>{
   render();
 });
 
-loadData();
+// INIT
+updateKPIs();
+render();
 </script>
 </body>
 </html>
-
