@@ -501,9 +501,189 @@ td { padding:11px 12px; vertical-align:middle; }
   from{opacity:0;transform:translateY(14px)}
   to{opacity:1;transform:translateY(0)}
 }
+
+/* ── MODAL ── */
+.modal-overlay {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  z-index:1000;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+}
+.modal-overlay.open { display:flex; }
+.modal {
+  background:var(--bg-card);
+  border:1px solid var(--border-accent);
+  border-radius:16px;
+  width:100%;
+  max-width:480px;
+  max-height:88vh;
+  overflow-y:auto;
+  animation:fadeUp .2s ease both;
+}
+.modal-header {
+  padding:22px 22px 14px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  position:sticky;
+  top:0;
+  background:var(--bg-card);
+  z-index:2;
+}
+.modal-title { flex:1; }
+.modal-name {
+  font-family:var(--font-display);
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:-.02em;
+}
+.modal-club {
+  font-family:var(--font-mono);
+  font-size:10px;
+  color:var(--text-muted);
+  margin-top:2px;
+}
+.modal-close {
+  background:var(--bg-raised);
+  border:1px solid var(--border);
+  border-radius:6px;
+  color:var(--text-secondary);
+  font-size:14px;
+  cursor:pointer;
+  padding:5px 10px;
+  flex-shrink:0;
+  transition:all .15s;
+  font-family:var(--font-body);
+}
+.modal-close:hover { border-color:var(--danger); color:var(--danger); }
+.modal-body { padding:18px 22px 22px; }
+.modal-kpis {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-bottom:18px;
+}
+.mkpi {
+  background:var(--bg-raised);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 14px;
+}
+.mkpi-v {
+  font-family:var(--font-display);
+  font-size:18px;
+  font-weight:800;
+  display:block;
+}
+.mkpi-l {
+  font-family:var(--font-mono);
+  font-size:9px;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  margin-top:2px;
+  display:block;
+}
+.modal-sec-title {
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:.14em;
+  color:var(--accent);
+  text-transform:uppercase;
+  margin-bottom:8px;
+  margin-top:16px;
+}
+.modal-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:7px 0;
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+}
+.modal-row:last-child { border-bottom:none; }
+.modal-row-l { color:var(--text-secondary); }
+.modal-row-v { font-family:var(--font-mono); font-weight:500; }
+.modal-rec {
+  background:var(--bg-raised);
+  border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;
+  padding:12px 14px;
+  margin-top:16px;
+}
+.modal-rec-tag {
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:.12em;
+  color:var(--accent);
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+.modal-rec p { font-size:12px; color:var(--text-secondary); line-height:1.6; }
+
+tbody tr { cursor:pointer; }
 </style>
 </head>
 <body>
+
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-title">
+        <div class="modal-name" id="m-name"></div>
+        <div class="modal-club" id="m-club"></div>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-kpis">
+        <div class="mkpi">
+          <span class="mkpi-v" id="m-mv"></span>
+          <span class="mkpi-l">Market Value</span>
+        </div>
+        <div class="mkpi">
+          <span class="mkpi-v" id="m-unr"></span>
+          <span class="mkpi-l">Unrealized Gain</span>
+        </div>
+        <div class="mkpi">
+          <span class="mkpi-v" id="m-crs"></span>
+          <span class="mkpi-l">Rischio Contratto</span>
+        </div>
+        <div class="mkpi">
+          <span class="mkpi-v" id="m-state"></span>
+          <span class="mkpi-l">Stato Portfolio</span>
+        </div>
+      </div>
+
+      <div class="modal-sec-title">Dati Asset</div>
+      <div class="modal-row"><span class="modal-row-l">Ruolo</span><span class="modal-row-v" id="m-role"></span></div>
+      <div class="modal-row"><span class="modal-row-l">Età</span><span class="modal-row-v" id="m-age"></span></div>
+      <div class="modal-row"><span class="modal-row-l">Tier</span><span class="modal-row-v" id="m-tier"></span></div>
+      <div class="modal-row"><span class="modal-row-l">Nazionalità</span><span class="modal-row-v" id="m-nat"></span></div>
+
+      <div class="modal-sec-title">Metriche Finanziarie</div>
+      <div class="modal-row"><span class="modal-row-l">Anomaly Gap Score</span><span class="modal-row-v" id="m-anomaly"></span></div>
+      <div class="modal-row"><span class="modal-row-l">Mesi contratto residui</span><span class="modal-row-v" id="m-months"></span></div>
+      <div class="modal-row"><span class="modal-row-l">Liquidity Window</span><span class="modal-row-v" id="m-lw"></span></div>
+      <div class="modal-row"><span class="modal-row-l">Exit Window</span><span class="modal-row-v" id="m-exit"></span></div>
+
+      <div class="modal-rec">
+        <div class="modal-rec-tag">Raccomandazione Operativa</div>
+        <p id="m-rec"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="wrap">
 
 <!-- HERO -->
@@ -856,7 +1036,7 @@ function render(){
     const pct = Math.min(100,Math.round((p.months/40)*100));
     const barColor = p.months<=3?'var(--danger)':p.months<=12?'var(--accent-warm)':'var(--success)';
     return `
-    <tr class="${isAlert?'alert':''}">
+    <tr class="${isAlert?'alert':''}" onclick="openModal(${JSON.stringify(p).replace(/"/g,'&quot;')})">
       <td>
         <div class="pname">${p.nationality} ${p.name}</div>
         <div class="pclub">${p.club}</div>
@@ -888,8 +1068,56 @@ function render(){
 }
 
 // ══════════════════════════════
-// EVENTS
+// MODAL
 // ══════════════════════════════
+function getRec(p){
+  if(p.overall==='URGENT' && p.crs_flag==='CRITICO')
+    return `Contratto in scadenza critica (${p.months} mesi). Necessaria decisione immediata: rinnovo o exit prima che il valore scenda. Finestra di luglio è l'ultima opportunità a prezzi attuali.`;
+  if(p.overall==='URGENT' && p.lw_flag==='EXIT SOON')
+    return `Asset vicino al picco di valore stimato (${p.lwMonths} mesi). Valutare exit nella finestra estiva per massimizzare la plusvalenza. Rischio di deprezzamento post-picco.`;
+  if(p.crs_flag==='ATTENZIONE')
+    return `Contratto in area di attenzione. Monitorare nelle prossime settimane — se non si avviano trattative di rinnovo o cessione entro 90 giorni, il valore negoziale inizia a calare.`;
+  if(p.anomaly>=5)
+    return `Anomaly Gap elevato (${p.anomaly}×). Il valore di mercato percepito è significativamente inferiore alla clausola stimata. Potenziale asset da valorizzare o proteggere da offerte sottostimate.`;
+  if(p.tier===1)
+    return `Asset Tier 1 in fase stabile. Mantenere monitoraggio mensile su minutaggio e performance. Liquidity window aperta per altri ${p.lwMonths} mesi.`;
+  return `Asset in fase HOLD. Nessuna azione urgente richiesta. Revisione consigliata alla prossima finestra di mercato.`;
+}
+
+function openModal(p){
+  document.getElementById('m-name').textContent    = p.nationality+' '+p.name;
+  document.getElementById('m-club').textContent    = p.club+' · '+p.role+' · età '+p.age;
+  document.getElementById('m-mv').textContent      = fmtMV(p.mv)+'€';
+  document.getElementById('m-mv').className        = 'mkpi-v';
+  document.getElementById('m-unr').textContent     = fmtM(p.unrealized)+'€';
+  document.getElementById('m-unr').className       = 'mkpi-v '+(p.unrealized>=0?'val-pos':'val-neg');
+  document.getElementById('m-crs').textContent     = p.crs_flag;
+  document.getElementById('m-crs').className       = 'mkpi-v '+crsClass(p);
+  document.getElementById('m-state').textContent   = p.overall;
+  document.getElementById('m-state').className     = 'mkpi-v '+(p.overall==='URGENT'?'val-neg':p.overall==='WATCH'?'val-warn':'val-muted');
+  document.getElementById('m-role').textContent    = p.role;
+  document.getElementById('m-age').textContent     = p.age+' anni';
+  document.getElementById('m-tier').textContent    = 'Tier '+p.tier;
+  document.getElementById('m-nat').textContent     = p.nationality;
+  document.getElementById('m-anomaly').textContent = p.anomaly+'×';
+  document.getElementById('m-months').textContent  = p.months+' mesi';
+  document.getElementById('m-lw').textContent      = p.lwMonths+' mesi stimati';
+  document.getElementById('m-exit').textContent    = p.lw_flag;
+  document.getElementById('m-rec').textContent     = getRec(p);
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModalDirect(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModal(e){
+  if(e.target === document.getElementById('modal-overlay')) closeModalDirect();
+}
+
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeModalDirect(); });
 function setFilter(f){
   activeFilter = f;
   document.querySelectorAll('.pill').forEach(p=>{
